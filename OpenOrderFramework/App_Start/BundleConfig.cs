@@ -26,9 +26,8 @@ namespace OpenOrderFramework
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/variables.less",
-                      "~/Content/bootswatch.less",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/font-awesome.css"));
         }
     }
 }

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Saoirse Design specializes in a multitude of professionally hand crafted and customizable items. Including: Bull whips, Paracord wearables and advanced LED design comissions." />
+    <meta name="keywords" content="Saoirse, Saoirse Design, " />
+    
+    <title>@ViewBag.Title - Saoirse Design</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <header class="splash-header">
+        <div class="splash-container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                @Html.ActionLink("Saoirse Design", "Index", "Home", null, new { @class = "sd-logo" })
+            </div>
+
+            <div class="navbar-collapse collapse">
+                @Html.Partial("_LoginPartial")
+
+                <ul class="nav navbar-nav navbar-right" style="padding-right:5px;">                   
+
+                    <li>@Html.ActionLink("Food", "Index", "Items")</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="accentborder-top"></div>
+    <div class="accentborder-left"></div>
+    <div class="accentborder-right"></div>
+    <div class="accentborder-bottom"></div>
+    
+    <div class="container body-content">
+        @RenderBody()        
+    </div>     
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

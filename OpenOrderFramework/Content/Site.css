@@ -1,4 +1,70 @@
-﻿body {
+﻿.splash-header {
+    padding-top: 70px;
+    padding: 50px 0;
+    background: none;
+}
+
+.splash-container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.accentborder-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-top: 22px solid #CCC0A7;
+}
+.accentborder-left {
+    position: absolute;
+    height: 100%;
+    width: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-left: 22px solid #CCC0A7;
+}
+.accentborder-right {
+    position: absolute;
+    top: 0;
+    left: auto;
+    height: 100%;
+    right: 0;
+    border-left: 22px solid #CCC0A7;
+}
+.accentborder-bottom {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 22px solid #CCC0A7;
+}
+
+a.sd-logo {
+    font-size: 22px;
+    color: #160E32;
+}
+
+a:hover, .nav li a:hover {
+    background: none;
+    color: #305733;
+    border-bottom: 5px solid #305733;
+    text-decoration: none;
+}
+
+.nav li a {
+    margin: 3px 10px;
+    padding: 0px;
+    color: #ED5672;
+}
+
+/*********/
+body {
+    font-family: 'Montserrat', sans-serif;
     padding-top: 50px;
     padding-bottom: 20px;
 }
