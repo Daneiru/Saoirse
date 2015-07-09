@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OpenOrderFramework.Models
 {
@@ -25,8 +26,9 @@ namespace OpenOrderFramework.Models
         #endregion
 
         #region m : 1
-        public int DesignerItemID { get; set; }
-        public virtual DesignerItem DesignerItem { get; set; }
+        [ForeignKey("ItemID")]
+        public virtual Item Item { get; set; }
+        public int ItemID { get; set; }
         #endregion
     }
 }

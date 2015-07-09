@@ -1,28 +1,18 @@
 namespace OpenOrderFramework.Migrations
 {
-    using System.Linq;
-    using System.Security.Claims;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using Microsoft.AspNet.Identity.Owin;
-    using Microsoft.Owin;
-    using Microsoft.Owin.Security;
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity;
-    using System.Threading.Tasks;
-    using System.Web;
     using System.Data.Entity.Migrations;
     using OpenOrderFramework.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<OpenOrderFramework.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(OpenOrderFramework.Models.ApplicationDbContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
             var roleStore = new RoleStore<IdentityRole>(context);
             var roleManager = new RoleManager<IdentityRole>(roleStore);
@@ -38,19 +28,11 @@ namespace OpenOrderFramework.Migrations
             userManager.AddToRole(user.Id, "Admin");
 
 
-
+            // SEEDs
             //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            new SeedCatagorie().Seed(context);
+            new SeedDesignerCatagorie().Seed(context);
+            new SeedItem().Seed(context);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -54,5 +55,26 @@ namespace OpenOrderFramework.Models {
         public DbSet<DesignerItemOptionSet> DesignerItemOptionSets { get; set; }
         public DbSet<DesignerOption> DesignerOptions { get; set; }
         public DbSet<DesignerItemSelection> DesignerItemSelections { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder) {
+            base.OnModelCreating(modelBuilder); // Setup inital defaults.
+
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            
+            #region Recursion for Catagorie
+            modelBuilder.Entity<Catagorie>()
+                .HasOptional(e => e.Parent)
+                .WithMany(e => e.Children)
+                .HasForeignKey(e => e.ParentID);
+
+            modelBuilder.Entity<DesignerCatagorie>()
+                .HasOptional(e => e.Parent)
+                .WithMany(e => e.Children)
+                .HasForeignKey(e => e.ParentID);
+            #endregion 
+        }
     }
+
+
 }

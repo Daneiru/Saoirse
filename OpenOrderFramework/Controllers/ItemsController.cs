@@ -103,7 +103,7 @@ namespace OpenOrderFramework.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CatagorieId = new SelectList(db.Catagories, "ID", "Name", item.CatagorieId);
+            ViewBag.CatagorieId = new SelectList(db.Catagories, "ID", "Name", item.CatagorieID);
             return View(item);
         }
 
@@ -137,7 +137,7 @@ namespace OpenOrderFramework.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.CatagorieId = new SelectList(db.Catagories, "ID", "Name", item.CatagorieId);
+            ViewBag.CatagorieId = new SelectList(db.Catagories, "ID", "Name", item.CatagorieID);
             return View(item);
         }
 

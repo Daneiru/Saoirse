@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.IO;
-using System.Web.Mvc.Html;
 
 namespace OpenOrderFramework.Models
 {
@@ -17,10 +10,10 @@ namespace OpenOrderFramework.Models
             OrderDetails = new HashSet<OrderDetail>();
         }
 
-        #region 1 : m RegularItems
-        [DisplayName("Catagorie")]
-        public int CatagorieId { get; set; }
+        #region 1 : m RegularItems        
+        [ForeignKey("CatagorieID")]
         public virtual Catagorie Catagorie { get; set; }
+        public int CatagorieID { get; set; }
         #endregion
 
         #region 1 RegularItem : m

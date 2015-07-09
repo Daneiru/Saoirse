@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using OpenOrderFramework.Models;
+using System.Data.Entity.Migrations;
 
 namespace OpenOrderFramework.Migrations
 {
-    public class ItemSeed
+    public class SeedItem
     {
         public List<RegularItem> List = new List<RegularItem> {
-            new RegularItem { ItemID = 1, CatagorieId = 1, Name = "", Price = 0.00m }
+            new RegularItem { ItemID = 1, CatagorieID = 3, Name = "Ouroburos", Price = 229.90m }
         };
 
         public void Seed(ApplicationDbContext context) {
-            List.ForEach(f => context.Items.Add(f));
+            List.ForEach(f => context.Items.AddOrUpdate(f));
             context.SaveChanges();
         }
     }

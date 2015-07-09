@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using OpenOrderFramework.Models;
+using System.Data.Entity.Migrations;
 
 namespace OpenOrderFramework.Migrations
 {
-    public class DesignerCatagorieSeed
+    public class SeedDesignerCatagorie
     {
         public List<DesignerCatagorie> List = new List<DesignerCatagorie> {
             new DesignerCatagorie { DesignerCatagorieID = 1, Name = "Whips" },
@@ -12,7 +13,7 @@ namespace OpenOrderFramework.Migrations
         };
 
         public void Seed(ApplicationDbContext context) {
-            List.ForEach(f => context.DesignerCatagories.Add(f));
+            List.ForEach(f => context.DesignerCatagories.AddOrUpdate(f));
             context.SaveChanges();
         }
     }

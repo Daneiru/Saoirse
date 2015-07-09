@@ -8,20 +8,18 @@ namespace OpenOrderFramework.Models
     {
         public DesignerCatagorie() {
             Children = new HashSet<DesignerCatagorie>();
-            DesignerItems = new HashSet<DesignerItem>();
+            Items = new HashSet<Item>();
         }
 
         [Key]
-        [DisplayName("Designer Catagorie ID")]
         public int DesignerCatagorieID { get; set; }
-
-        [DisplayName("Designer Catagorie")]
+        
         public string Name { get; set; }
 
         public int SortOrder { get; set; }
 
         #region 1 Catagorie : m
-        public virtual ICollection<DesignerItem> DesignerItems { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
         #endregion
 
         #region Recursion for Parent/Child Relationship

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OpenOrderFramework.Models
 {
@@ -8,13 +9,12 @@ namespace OpenOrderFramework.Models
     {
         public Catagorie() {
             Children = new HashSet<Catagorie>();
+            Items = new HashSet<Item>();
         }
 
         [Key]
-        [DisplayName("Catagorie ID")]
         public int CatagorieID { get; set; }
-
-        [DisplayName("Catagorie")]
+        
         public string Name { get; set; }
 
         public int SortOrder { get; set; }

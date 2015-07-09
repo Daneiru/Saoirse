@@ -37,9 +37,9 @@ namespace OpenOrderFramework.Models
         public int Width { get; set; }
         public int Height { get; set; }
         #endregion
-
-        [DisplayName("Image Group")]
-        public int? ImageGroupID { get; set; }
+        
+        [ForeignKey("ImageGroupID")]
         public virtual ImageGroup ImageGroup { get; set; }
+        public int? ImageGroupID { get; set; }
     }
 }
