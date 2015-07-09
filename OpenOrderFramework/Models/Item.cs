@@ -11,65 +11,35 @@ using System.Web.Mvc.Html;
 
 namespace OpenOrderFramework.Models
 {
-    [Bind(Exclude = "ID")]
     public class Item
     {
-        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
-
-
         [Key]
         [ScaffoldColumn(false)]
-        public int ID { get; set; }
+        public int ItemID { get; set; }
 
-        [DisplayName("Catagorie")]
-        public int CatagorieId { get; set; }
-
-        [Required(ErrorMessage = "An Item Name is required")]
+        
         [StringLength(160)]
+        [Required(ErrorMessage = "An Item Name is required")]
         public string Name { get; set; }
 
-
+        public string Description { get; set; }
 
         [Required(ErrorMessage = "Price is required")]
-        [Range(0.01, 999.99,ErrorMessage = "Price must be between 0.01 and 999.99")]
+        [Range(0.00, 999.99,ErrorMessage = "Price must be between 0.01 and 999.99")]
         public decimal Price { get; set; }
 
-        public byte[] InternalImage { get; set; }
+        #region Shipping Info
+        public int Pounds { get; set; }
+        public int Ounces { get; set; }
+        //public string Size { get; set; } // NOTE: USPS Defines REGULAR or LARGE, large is any item more than 12" in one dimension.
 
-        [Display(Name = "Local file")]
-        [NotMapped]
-        public HttpPostedFileBase File
-        {
-            get
-            {
-                return null;
-            }
+        public int Length { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
+        #endregion
 
-            set
-            {
-                try
-                {
-                    MemoryStream target = new MemoryStream();
-
-                    if (value.InputStream == null)
-                        return;
-
-                    value.InputStream.CopyTo(target);
-                    InternalImage = target.ToArray();
-                }
-                catch (Exception ex)
-                {
-                    logger.Error(ex.Message);
-                    logger.Error(ex.StackTrace);
-                }
-            }
-        }
-
-        [DisplayName("Item Picture URL")]
-        [StringLength(1024)]
-        public string ItemPictureUrl { get; set; }
-
-        public virtual Catagorie Catagorie { get; set; }
-        public virtual List<OrderDetail> OrderDetails { get; set; }
+        [DisplayName("Image Group")]
+        public int? ImageGroupID { get; set; }
+        public virtual ImageGroup ImageGroup { get; set; }
     }
 }

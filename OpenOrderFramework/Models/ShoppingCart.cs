@@ -30,14 +30,14 @@ namespace OpenOrderFramework.Models
             // Get the matching cart and item instances
             var cartItem = storeDB.Carts.SingleOrDefault(
                 c => c.CartId == ShoppingCartId
-                && c.ItemId == item.ID);
+                && c.ItemId == item.ItemID);
 
             if (cartItem == null)
             {
                 // Create a new cart item if no cart item exists
                 cartItem = new Cart
                 {
-                    ItemId = item.ID,
+                    ItemId = item.ItemID,
                     CartId = ShoppingCartId,
                     Count = 1,
                     DateCreated = DateTime.Now
@@ -140,8 +140,8 @@ namespace OpenOrderFramework.Models
             {
                 var orderDetail = new OrderDetail
                 {
-                    ItemId = item.ItemId,
-                    OrderId = order.OrderId,
+                    ItemID = item.ItemId,
+                    OrderID = order.OrderID,
                     UnitPrice = item.Item.Price,
                     Quantity = item.Count
                 };

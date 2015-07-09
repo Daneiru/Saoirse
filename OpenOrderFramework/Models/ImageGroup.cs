@@ -15,7 +15,7 @@ namespace OpenOrderFramework.Models
 
         [Key]
         [DisplayName("Image Group ID")]
-        public int ID { get; set; }
+        public int ImageGroupID { get; set; }
 
         [Required(ErrorMessage = "An Item Name is required")]
         [StringLength(160)]

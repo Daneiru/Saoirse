@@ -26,16 +26,7 @@ namespace OpenOrderFramework.Models {
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser> {
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false) {
-        }
-
-
-        public DbSet<Item> Items { get; set; }
-        public DbSet<Cart> Carts { get; set; }
-        public DbSet<Catagorie> Catagories { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public ApplicationDbContext() : base("DefaultConnection", throwIfV1Schema: false) { }
 
         static ApplicationDbContext() {
             // Set the database intializer which is run once during application start
@@ -46,5 +37,22 @@ namespace OpenOrderFramework.Models {
         public static ApplicationDbContext Create() {
             return new ApplicationDbContext();
         }
+
+        // Pre-existing.
+        public DbSet<Item> Items { get; set; } // TPH: RegularItem, DesignerItem
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<Catagorie> Catagories { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+
+        // Added.
+        public DbSet<Image> Images { get; set; }
+        public DbSet<ImageGroup> ImageGroups { get; set; }
+
+        public DbSet<DesignerCatagorie> DesignerCatagories { get; set; }
+        public DbSet<DesignerItem> DesignerItems { get; set; }
+        public DbSet<DesignerItemOptionSet> DesignerItemOptionSets { get; set; }
+        public DbSet<DesignerOption> DesignerOptions { get; set; }
+        public DbSet<DesignerItemSelection> DesignerItemSelections { get; set; }
     }
 }

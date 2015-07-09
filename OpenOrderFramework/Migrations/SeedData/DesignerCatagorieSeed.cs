@@ -6,9 +6,9 @@ namespace OpenOrderFramework.Migrations
     public class DesignerCatagorieSeed
     {
         public List<DesignerCatagorie> List = new List<DesignerCatagorie> {
-            new DesignerCatagorie { ID = 1, Name = "Whips" },
-            new DesignerCatagorie { ID = 4, Name = "Wearables" },
-            new DesignerCatagorie { ID = 7, Name = "Leash & Collar" },
+            new DesignerCatagorie { DesignerCatagorieID = 1, Name = "Whips" },
+            new DesignerCatagorie { DesignerCatagorieID = 2, Name = "Wearables" },
+            new DesignerCatagorie { DesignerCatagorieID = 3, Name = "Leash & Collar" },
         };
 
         public void Seed(ApplicationDbContext context) {

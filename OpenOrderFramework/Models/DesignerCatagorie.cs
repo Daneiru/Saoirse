@@ -13,7 +13,7 @@ namespace OpenOrderFramework.Models
 
         [Key]
         [DisplayName("Designer Catagorie ID")]
-        public int ID { get; set; }
+        public int DesignerCatagorieID { get; set; }
 
         [DisplayName("Designer Catagorie")]
         public string Name { get; set; }

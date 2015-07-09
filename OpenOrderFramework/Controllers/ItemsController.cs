@@ -39,7 +39,7 @@ namespace OpenOrderFramework.Controllers
                            select i;
             if (!String.IsNullOrEmpty(searchString))
             {
-                items = items.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper())
+                items = items.OfType<RegularItem>().Where(s => s.Name.ToUpper().Contains(searchString.ToUpper())
                                        || s.Catagorie.Name.ToUpper().Contains(searchString.ToUpper()));
             }
             switch (sortOrder)
@@ -94,7 +94,7 @@ namespace OpenOrderFramework.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Create(Item item)
+        public async Task<ActionResult> Create(RegularItem item)
         {
             if (ModelState.IsValid)
             {
@@ -107,28 +107,29 @@ namespace OpenOrderFramework.Controllers
             return View(item);
         }
 
+        // TODO
         // GET: Items/Edit/5
-         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Item item = await db.Items.FindAsync(id);
-            if (item == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.CatagorieId = new SelectList(db.Catagories, "ID", "Name", item.CatagorieId);
-            return View(item);
-        }
+        //[Authorize(Roles = "Admin")]
+        //public async Task<ActionResult> Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    RegularItem item = await db.Items.FindAsync(id);
+        //    if (item == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    ViewBag.CatagorieId = new SelectList(db.Catagories, "ID", "Name", item.CatagorieId);
+        //    return View(item);
+        //}
 
         // POST: Items/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Edit(Item item)
+        public async Task<ActionResult> Edit(RegularItem item)
         {
             if (ModelState.IsValid)
             {
@@ -168,14 +169,15 @@ namespace OpenOrderFramework.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<ActionResult> RenderImage(int id)
-        {
-            Item item = await db.Items.FindAsync(id);
+        // TODO
+        //public async Task<ActionResult> RenderImage(int id)
+        //{
+        //    Item item = await db.Items.FindAsync(id);
 
-            byte[] photoBack = item.InternalImage;
+        //    byte[] photoBack = item.InternalImage;
 
-            return File(photoBack, "image/png");
-        }
+        //    return File(photoBack, "image/png");
+        //}
 
         protected override void Dispose(bool disposing)
         {

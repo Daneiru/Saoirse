@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OpenOrderFramework.Models
 {
-    public class DesignerItemChoice
+    public class DesignerItemOptionSet
     {
-        public DesignerItemChoice() {
+        public DesignerItemOptionSet() {
             DesignerOptions = new HashSet<DesignerOption>();
         }
 
         [Key]
-        [DisplayName("Designer Choice ID")]
-        public int ID { get; set; }
+        [DisplayName("Designer Choiceset ID")]
+        public int DesignerItemOptionSetID { get; set; }
 
         [Required(ErrorMessage = "A Choice Name is required")]
         [StringLength(160)]
@@ -29,8 +25,8 @@ namespace OpenOrderFramework.Models
         #endregion
 
         #region m : 1
-        public int? ImageID { get; set; }
-        public virtual Image Image { get; set; }
+        public int DesignerItemID { get; set; }
+        public virtual DesignerItem DesignerItem { get; set; }
         #endregion
     }
 }

@@ -86,10 +86,10 @@ namespace OpenOrderFramework.Controllers
 
 
 
-                    CheckoutController.SendOrderMessage(order.FirstName, "New Order: " + order.OrderId,order.ToString(order), appConfig.OrderEmail);
+                    CheckoutController.SendOrderMessage(order.FirstName, "New Order: " + order.OrderID,order.ToString(order), appConfig.OrderEmail);
 
                     return RedirectToAction("Complete",
-                        new { id = order.OrderId });
+                        new { id = order.OrderID });
                 
             }
             catch
@@ -105,7 +105,7 @@ namespace OpenOrderFramework.Controllers
         {
             // Validate customer owns this order
             bool isValid = storeDB.Orders.Any(
-                o => o.OrderId == id &&
+                o => o.OrderID == id &&
                 o.Username == User.Identity.Name);
 
             if (isValid)

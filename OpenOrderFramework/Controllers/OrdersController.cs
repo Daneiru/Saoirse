@@ -74,7 +74,7 @@ namespace OpenOrderFramework.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Order order = await db.Orders.FindAsync(id);
-            var orderDetails = db.OrderDetails.Where(x => x.OrderId == id );
+            var orderDetails = db.OrderDetails.Where(x => x.OrderID == id );
 
             order.OrderDetails = await orderDetails.ToListAsync();
             if (order == null)
