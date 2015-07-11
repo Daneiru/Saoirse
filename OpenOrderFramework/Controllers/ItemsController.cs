@@ -10,6 +10,8 @@ using System.Web.Mvc;
 using PagedList.Mvc;
 using PagedList;
 using OpenOrderFramework.Models;
+using OpenOrderFramework.ViewModels;
+using OpenOrderFramework.Extensions;
 
 namespace OpenOrderFramework.Controllers
 {
@@ -65,6 +67,19 @@ namespace OpenOrderFramework.Controllers
 
             //var items = db.Items.Include(i => i.Catagorie);
             //return View(await items.ToListAsync());
+        }
+
+        public ActionResult Browse() {
+            var itemsResult = db.Items.OfType<RegularItem>().Select(itm => new ItemViewModel() {
+                ItemID = itm.ItemID,
+                Name = itm.Name,
+                Catagories = itm.Catagorie.Name.CleanString() + " " + (itm.Catagorie.Parent != null ? itm.Catagorie.Parent.Name.CleanString() : null),
+                Price = itm.Price
+            });
+
+            ViewData["Catagories"] = db.Catagories.ToList();
+
+            return View(itemsResult);
         }
 
         // GET: Items/Details/5

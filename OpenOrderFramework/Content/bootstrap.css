@@ -3771,6 +3771,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   width: 22px;
   height: 2px;
   border-radius: 1px;
+  border: 1px solid;
 }
 .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 4px;
@@ -3896,9 +3897,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     -webkit-box-shadow: none;
     box-shadow: none;
   }
-  .navbar-form.navbar-right:last-child {
+  /*.navbar-form.navbar-right:last-child {
     margin-right: -15px;
-  }
+  }*/
 }
 .navbar-nav > li > .dropdown-menu {
   margin-top: 0;
@@ -4329,13 +4330,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding: 3px 5px;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
-  font-weight: bold;
-  color: white;
+  font-weight: bold;  
   line-height: 1;
   vertical-align: baseline;
   white-space: nowrap;
   text-align: center;
-  background-color: #ED5672;
+  /*background-color: #ED5672;*/
+  color: black;
+  background-color: #FFF;
   border-radius: 10px;
 }
 .badge:empty {
@@ -4359,6 +4361,7 @@ a.list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
   color: #008cba;
   background-color: #ffffff;
+  font-weight: bold;
 }
 .nav-pills > li > a > .badge {
   margin-left: 3px;
@@ -4367,11 +4370,12 @@ a.list-group-item.active > .badge,
   padding: 30px;
   margin-bottom: 30px;
   color: inherit;
-  background-color: #fafafa;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 .jumbotron h1,
 .jumbotron .h1 {
-  color: inherit;
+  /*color: inherit;*/
+  color:#ED5672;
 }
 .jumbotron p {
   margin-bottom: 15px;
@@ -5790,7 +5794,8 @@ button.close {
   background-color: #b3b3b3;
 }
 .navbar-collapse {
-  border-top-color: rgba(0, 0, 0, 0.2);
+  margin-top: 5px;
+  border-top-color: #FFF;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5919,7 +5924,8 @@ button.close {
   background-color: #dc2c0f;
 }
 .lead {
-  color: #6f6f6f;
+  /*color: #6f6f6f;*/
+  color: #D2D9D8;
 }
 cite {
   font-style: italic;

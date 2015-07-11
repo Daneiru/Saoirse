@@ -22,11 +22,14 @@ namespace OpenOrderFramework.Models
         [Required(ErrorMessage = "An Item Name is required")]
         public string Name { get; set; }
 
+        public string ShortDescription { get; set; }
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Price is required")]
         [Range(0.00, 999.99,ErrorMessage = "Price must be between 0.01 and 999.99")]
         public decimal Price { get; set; }
+
+        public int AvailableQuantity { get; set; }
 
         #region Shipping Info
         public int Pounds { get; set; }

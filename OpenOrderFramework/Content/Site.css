@@ -1,12 +1,12 @@
 ﻿.splash-header {
     padding-top: 70px;
-    padding: 50px 0;
+    padding: 25px 0;
     background: none;
 }
 
 .splash-container {
     position: relative;
-    width: 80%;
+    width: 85%;
     margin: 0 auto;
     padding: 0;
 }
@@ -46,21 +46,34 @@
 
 a.sd-logo {
     font-family: SerendityScript,'Open Sans';
-    font-size: 40px;
-    color: #160E32;
+    font-size: 50px;
+    color: #FFF;
 }
+    a.sd-logo:hover {
+        color: #ED5672;
+        border: none;
+    }
 
 a:hover, .nav li a:hover {
     background: none;
-    color: #305733;
-    border-bottom: 5px solid #305733;
+    /*color: #305733;*/
+    /*border-bottom: 5px solid #305733;*/
+    border-bottom: 3px solid #FFF;
     text-decoration: none;
 }
 
 .nav li a {
     margin: 3px 10px;
     padding: 0px;
-    color: #ED5672;
+    /*color: #ED5672;*/
+    color: #FFF;
+}
+
+:focus {
+  /*outline: -webkit-focus-ring-color auto 5px;*/
+  outline-color: #ED5672;
+  outline-style: solid;
+  outline-width: 1px;
 }
 
 /*********/
@@ -68,12 +81,16 @@ body {
     font-family: 'Montserrat', sans-serif;
     padding-top: 50px;
     padding-bottom: 20px;
+    
+    background-image: url('../Content/Imgs/BG.jpg');
+    color: #FFF;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    width: 75%;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */

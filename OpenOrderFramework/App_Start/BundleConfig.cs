@@ -29,6 +29,10 @@ namespace OpenOrderFramework
                       "~/Content/site.css",
                       "~/Content/font-awesome.css",
                       "~/Content/fonts.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/scripting").Include(
+                        "~/Scripts/isotope.pkgd.js",
+                        "~/Scripts/perfect-scrollbar.js"));
         }
     }
 }

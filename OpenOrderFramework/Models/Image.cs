@@ -52,6 +52,9 @@ namespace OpenOrderFramework.Models
         public string ItemPictureUrl { get; set; }
 
         #region 1 : m 
+        [ForeignKey("ImageGroupID")]
+        public virtual ImageGroup ImageGroup { get; set; }
+        public int? ImageGroupID { get; set; }
         #endregion
 
         #region m : 1

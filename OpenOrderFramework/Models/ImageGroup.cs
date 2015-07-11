@@ -10,7 +10,7 @@ namespace OpenOrderFramework.Models
     public class ImageGroup
     {
         public ImageGroup() {
-
+            Images = new HashSet<Image>();
         }
 
         [Key]
@@ -22,6 +22,7 @@ namespace OpenOrderFramework.Models
         public string Name { get; set; }
 
         #region 1 : m 
+        public virtual ICollection<Image> Images { get; set; }
         #endregion
 
         #region m : 1

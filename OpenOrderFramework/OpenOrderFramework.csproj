@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.4.0.0-alpha1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -192,12 +195,21 @@
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201507091634073_Initial.cs" />
     <Compile Include="Migrations\201507091634073_Initial.Designer.cs">
       <DependentUpon>201507091634073_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507110156017_FixImageGroupLink.cs" />
+    <Compile Include="Migrations\201507110156017_FixImageGroupLink.Designer.cs">
+      <DependentUpon>201507110156017_FixImageGroupLink.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507110600518_ItemShortDesc.cs" />
+    <Compile Include="Migrations\201507110600518_ItemShortDesc.Designer.cs">
+      <DependentUpon>201507110600518_ItemShortDesc.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\SeedDesignerCatagorie.cs" />
@@ -218,6 +230,7 @@
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\ImageGroup.cs" />
     <Compile Include="Models\Item.cs" />
+    <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
@@ -237,6 +250,9 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts.css" />
+    <Content Include="Content\Imgs\8.png" />
+    <Content Include="Content\Imgs\BG.jpg" />
+    <Content Include="Content\Imgs\SDthumb.JPG" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Content\PagedList1.css" />
     <Content Include="favicon.ico" />
@@ -259,6 +275,8 @@
     <Content Include="fonts\SerendityScript.ttf" />
     <Content Include="fonts\SerendityScript.woff" />
     <Content Include="fonts\SerendityScript.woff2" />
+    <Content Include="fonts\Moon Bold.otf" />
+    <Content Include="fonts\Moon Light.otf" />
     <None Include="Properties\PublishProfiles\orderframework.pubxml" />
     <Content Include="Scripts\card.js" />
     <None Include="Properties\PublishProfiles\saoirsedesign - FTP %282%29.pubxml" />
@@ -271,10 +289,11 @@
     <Content Include="Scripts\d3pie.min.js" />
     <Content Include="Scripts\isotope.pkgd.js" />
     <Content Include="Scripts\isotope.pkgd.min.js" />
-    <Content Include="Scripts\jquery-2.1.1.js" />
-    <Content Include="Scripts\jquery-2.1.1.min.js" />
-    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\jquery-2.1.4-vsdoc.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -286,6 +305,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\packery.pkgd.js" />
     <Content Include="Scripts\packery.pkgd.min.js" />
+    <Content Include="Scripts\perfect-scrollbar.jquery.js" />
+    <Content Include="Scripts\perfect-scrollbar.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -376,6 +397,7 @@
     <Content Include="Views\Analytics\Pie2.cshtml" />
     <Content Include="Views\Manage\GuestIndex.cshtml" />
     <Content Include="Views\Shared\_SplashLayout.cshtml" />
+    <Content Include="Views\Items\Browse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -392,6 +414,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201507091634073_Initial.resx">
       <DependentUpon>201507091634073_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507110156017_FixImageGroupLink.resx">
+      <DependentUpon>201507110156017_FixImageGroupLink.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507110600518_ItemShortDesc.resx">
+      <DependentUpon>201507110600518_ItemShortDesc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
